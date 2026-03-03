@@ -39,6 +39,11 @@ The controller:
 
 ## ASIC Flow
 
+### Simulation Waveforms
+The following images show the output of the testbench verifying correct state transitions and datapath behavior:
+- `waveforms/simulation_waveform1.png`
+- `waveforms/simulation_waveform2.png`
+  
 ### Synthesis
 - Tool: Cadence Genus
 - Area and timing reports generated
