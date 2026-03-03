@@ -1,0 +1,21 @@
+Design a digital controller for an automated baggage weighing and tagging machine used at airport check-in counters. Passengers place their baggage onto a digital weighing scale integrated into the machine. The machine measures the bag’s weight using a load cell sensor that generates a digital output proportional to the weight. After weighing, the machine compares the measured weight to the airline’s allowed baggage limit, which varies depending on the ticket class (e.g., Economy, Business, First Class). These limits are configurable by airport staff through a secure interface. If the weight is within the allowed limit, the machine prints a baggage tag containing:
+Passenger name
+Flight number
+Destination
+Bag weight
+Unique baggage ID number
+If the baggage exceeds the weight allowance, the machine calculates the excess baggage fee based on configurable per-kilogram rates. It displays the extra charge and prompts the passenger to either pay the fee or remove items from their bag. Payment can be completed via cash, credit card, or digital wallet interfaces connected to the machine. Once the payment is confirmed, the machine issues a baggage tag showing the total weight and the excess fee paid.
+
+The machine must detect and handle error conditions such as:
+Scale overload if weight exceeds the scale’s maximum capacity.
+Load cell faults or sensor errors.
+Printer jams or paper out conditions.
+In all error cases, the machine must stop further operations, display a clear error message, and alert airport staff for intervention.  Additionally, the system must support a maintenance mode for airport staff. In this mode, staff can:
+Calibrate the weighing scale with standard test weights.
+Update baggage allowance limits and excess fee rates.
+Test the printer and payment systems.
+View logs of the last 256 transactions for audit purposes.
+
+All normal passenger operations are suspended while in maintenance mode until explicitly exited.
+
+Inputs include digital weight readings from the load cell sensor, passenger flight and class data from the airline’s check-in system, operator commands for maintenance and configuration, signals from the payment systems, and clock and reset signals. Outputs include control signals for the printer, displays showing passenger instructions and status messages, signals for fault indicators, and communication lines for logging transactions and sending data to the airline’s systems. The controller must be implemented as a Mealy finite-state machine in a fully synthesizable RTL style suitable for ASIC synthesis and physical design. All logic must avoid combinational loops and should separate FSM control logic from datapath elements handling weight calculations, fee computations, transaction logging, and peripheral control.
